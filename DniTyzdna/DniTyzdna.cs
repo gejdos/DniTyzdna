@@ -14,7 +14,7 @@ namespace DniTyzdna
         public static void VypisDenTyzdna(string den)
         {
 
-            switch (int.Parse(den))
+            switch (Preved(den))
             {
                 case 1:
                     Console.WriteLine("Pondelok");
@@ -37,21 +37,35 @@ namespace DniTyzdna
                 case 7:
                     Console.WriteLine("Nedela");
                     break;
+                default:
+                    Console.WriteLine("Vstupny udaj musi byt cele cislo v rozsahu 1 - 7");
+                    break;
+
             }
         }
 
         public static void VypisDenTyzdna(string den, bool nedelaJePrva)
         {
+            /*if (Preved(den) < 1 || Preved(den) > 7)
+            {
+                Console.WriteLine("Cislo musi byt v rozsahu 1 - 7");
+                return;
+            }*/
 
             if (nedelaJePrva)
             {
-                if ((int.Parse(den) - 1) == 0)
+                if ((Preved(den) - 1) == 0)
                 {
                     den = "7";
                 }
+                else if ((Preved(den) - 1) == 7)
+                {
+                    Console.WriteLine("Vstupny udaj musi byt cele cislo v rozsahu 1 - 7");
+                    return;
+                }
                 else
                 {
-                    den = (int.Parse(den) - 1).ToString();
+                    den = (Preved(den) - 1).ToString();
                 }
             }
 
@@ -59,17 +73,10 @@ namespace DniTyzdna
 
         }
 
-       /* private static void SkontrolujAPreved(string den)
+        private static int Preved(string den)
         {
-            if (int.Parse(den) > 0 && int.Parse(den) < 8)
-            {
-                den = int.Parse(den);
-            }
-            else
-            {
-                
-            }
-            
-        }*/
+            return int.Parse(den);              
+        }
+
     }
 }

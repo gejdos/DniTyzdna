@@ -15,10 +15,11 @@ namespace DniTyzdna
                 Console.WriteLine("\nZadaj cislo dna");
                 string cisloDna = Console.ReadLine();
 
-                DniTyzdna.VypisDenTyzdna(cisloDna);
+                //DniTyzdna.VypisDenTyzdna(cisloDna);
                 DniTyzdna.VypisDenTyzdna(cisloDna, true);
 
-                //Console.ReadKey();
+                Console.ReadKey();
+
             }
 
         }
