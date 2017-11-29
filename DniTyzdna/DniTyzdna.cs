@@ -9,12 +9,15 @@ namespace DniTyzdna
     class DniTyzdna
     {
 
-        //private static int cisloDna;
-
         public static void VypisDenTyzdna(string den)
         {
+            if (!Skontroluj(den))
+            {
+                Console.WriteLine("Vstupny udaj musi byt cele cislo v rozsahu 1 - 7");
+                return;
+            }
 
-            switch (Preved(den))
+            switch (int.Parse(den))
             {
                 case 1:
                     Console.WriteLine("Pondelok");
@@ -37,35 +40,28 @@ namespace DniTyzdna
                 case 7:
                     Console.WriteLine("Nedela");
                     break;
-                default:
-                    Console.WriteLine("Vstupny udaj musi byt cele cislo v rozsahu 1 - 7");
-                    break;
-
             }
         }
 
         public static void VypisDenTyzdna(string den, bool nedelaJePrva)
         {
-            /*if (Preved(den) < 1 || Preved(den) > 7)
+            if (!Skontroluj(den))
             {
-                Console.WriteLine("Cislo musi byt v rozsahu 1 - 7");
+                Console.WriteLine("Vstupny udaj musi byt cele cislo v rozsahu 1 - 7");
                 return;
-            }*/
+            }
+
+            int noveCislo = int.Parse(den) - 1;
 
             if (nedelaJePrva)
             {
-                if ((Preved(den) - 1) == 0)
+                if (noveCislo == 0)
                 {
                     den = "7";
                 }
-                else if ((Preved(den) - 1) == 7)
-                {
-                    Console.WriteLine("Vstupny udaj musi byt cele cislo v rozsahu 1 - 7");
-                    return;
-                }
                 else
                 {
-                    den = (Preved(den) - 1).ToString();
+                    den = noveCislo.ToString();
                 }
             }
 
@@ -73,9 +69,25 @@ namespace DniTyzdna
 
         }
 
-        private static int Preved(string den)
+        private static bool Skontroluj(string den)
         {
-            return int.Parse(den);              
+            int cisloDna;
+            
+            if (int.TryParse(den, out cisloDna))
+            {
+                if (int.Parse(den) < 1 || int.Parse(den) > 7)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }
