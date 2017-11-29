@@ -16,7 +16,7 @@ namespace DniTyzdna
                 string cisloDna = Console.ReadLine();
 
                 //DniTyzdna.VypisDenTyzdna(cisloDna);
-                DniTyzdna.VypisDenTyzdna(cisloDna, false);
+                DniTyzdna.VypisDenTyzdna(cisloDna, true);
 
                 //Console.ReadKey();
 
