@@ -5,13 +5,15 @@ namespace DniTyzdna
     class DniTyzdna
     {
         public static void VypisDenTyzdna(string den)
-        {            
+        {
+            int cisloDna;
+            
             if (!SkontrolujCislo(den))
             {                
                 return;
             }
 
-            int cisloDna = int.Parse(den);
+            cisloDna = int.Parse(den);
 
             switch (cisloDna)
             {
@@ -40,16 +42,18 @@ namespace DniTyzdna
         }
 
         public static void VypisDenTyzdna(string den, bool nedelaJePrva)
-        {            
+        {
+            int noveCislo;
+
             if (!SkontrolujCislo(den))
             {
                 return;
             }
-
-            int noveCislo = int.Parse(den) - 1;
-
+                        
             if (nedelaJePrva)
             {
+                noveCislo = int.Parse(den) - 1;
+
                 if (noveCislo == 0)
                 {
                     den = "7";
