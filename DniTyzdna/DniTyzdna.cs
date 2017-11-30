@@ -69,16 +69,9 @@ namespace DniTyzdna
         {
             int cisloDna;
             
-            if (int.TryParse(den, out cisloDna))
+            if (int.TryParse(den, out cisloDna) && int.Parse(den) > 0 && int.Parse(den) < 8)
             {
-                if (int.Parse(den) < 1 || int.Parse(den) > 7)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
+                return true;               
             }
             else
             {
