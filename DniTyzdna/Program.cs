@@ -8,7 +8,7 @@ namespace DniTyzdna
         {
             while (true)
             {
-                Console.WriteLine("\nZadaj cislo dna");
+                Console.WriteLine("\n----------------\nZadaj cislo dna\n----------------");
                 string cisloDna = Console.ReadLine();
 
                 //DniTyzdna.VypisDenTyzdna(cisloDna);
@@ -17,7 +17,6 @@ namespace DniTyzdna
                 //Console.ReadKey();
 
             }
-
         }
     }
 }

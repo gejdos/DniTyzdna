@@ -4,16 +4,16 @@ namespace DniTyzdna
 {
     class DniTyzdna
     {
-
         public static void VypisDenTyzdna(string den)
-        {
-            if (!Skontroluj(den))
-            {
-                Console.WriteLine("Vstupny udaj musi byt cele cislo v rozsahu 1 - 7");
+        {            
+            if (!SkontrolujCislo(den))
+            {                
                 return;
             }
 
-            switch (int.Parse(den))
+            int cisloDna = int.Parse(den);
+
+            switch (cisloDna)
             {
                 case 1:
                     Console.WriteLine("Pondelok");
@@ -40,10 +40,9 @@ namespace DniTyzdna
         }
 
         public static void VypisDenTyzdna(string den, bool nedelaJePrva)
-        {
-            if (!Skontroluj(den))
+        {            
+            if (!SkontrolujCislo(den))
             {
-                Console.WriteLine("Vstupny udaj musi byt cele cislo v rozsahu 1 - 7");
                 return;
             }
 
@@ -62,22 +61,29 @@ namespace DniTyzdna
             }
 
             VypisDenTyzdna(den);
-
         }
 
-        private static bool Skontroluj(string den)
+        private static bool SkontrolujCislo(string den)
         {
             int cisloDna;
             
-            if (int.TryParse(den, out cisloDna) && int.Parse(den) > 0 && int.Parse(den) < 8)
+            if (int.TryParse(den, out cisloDna))
             {
-                return true;               
+                if (int.Parse(den) > 0 && int.Parse(den) < 8)
+                {
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("Vstupny udaj musi byt cislo v rozsahu: 1 - 7");
+                    return false;
+                }
             }
             else
             {
+                Console.WriteLine("Vstupny udaj musi byt cele cislo.");
                 return false;
             }
         }
-
     }
 }
